@@ -7,8 +7,29 @@
     <Filter Include="source">
       <UniqueIdentifier>{9af431ac-4c2a-4eea-b39e-6424162175ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\opengl">
+      <UniqueIdentifier>{124aa279-d15c-41fd-ab10-0f46365a1cec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Shader.cpp">
+      <Filter>source\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="basicfragment.glsl">
+      <Filter>assets</Filter>
+    </None>
+    <None Include="basicvertex.glsl">
+      <Filter>assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Shader.h">
+      <Filter>source\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h" />
   </ItemGroup>
 </Project>
