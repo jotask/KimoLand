@@ -20,6 +20,7 @@ namespace Aiko {
 
 		GLuint vao;
 		GLuint vbo;
+		GLuint vcolor;
 		GLuint ebo;
 
 		Transform transform;
