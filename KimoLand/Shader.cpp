@@ -99,4 +99,25 @@ namespace Aiko {
 	{
 	}
 
+	void Shader::setCamera(Aiko::Camera& cam)
+	{
+		setMat4( "view", cam.getView() );
+		setMat4( "projection", cam.getProjection());
+	}
+
+	void Shader::setObject(Aiko::Object & obj)
+	{
+		setMat4("model", obj.getTranform().getModel() );
+	}
+
+	void Shader::setMat4(const std::string name, const glm::mat4 mat)
+	{
+		glUniformMatrix4fv( getLocation( name ), 1, GL_FALSE, &mat[0][0] );
+	}
+
+	GLuint Shader::getLocation(const std::string name)
+	{
+		return glGetUniformLocation( this->program, name.c_str() );
+	}
+
 }

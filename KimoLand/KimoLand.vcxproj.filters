@@ -16,7 +16,15 @@
     <ClCompile Include="Shader.cpp">
       <Filter>source\opengl</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Object.cpp">
+      <Filter>source\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>source\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>source\opengl</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="basicfragment.glsl">
@@ -30,6 +38,17 @@
     <ClInclude Include="Shader.h">
       <Filter>source\opengl</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h" />
+    <ClInclude Include="Object.h">
+      <Filter>source\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>source\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="definitions.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>source\opengl</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

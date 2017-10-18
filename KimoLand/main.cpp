@@ -2,7 +2,10 @@
 #include <GL/glew.h>
 #include <SFML/Window.hpp>
 
+#include "definitions.h"
+
 #include "Shader.h"
+#include "Camera.h"
 #include "Object.h"
 
 int main()
@@ -16,7 +19,7 @@ int main()
 	settings.attributeFlags = sf::ContextSettings::Core;
 
 	sf::Window window;
-	window.create(sf::VideoMode(400, 400, 32), "openGL", sf::Style::Default, settings);
+	window.create(sf::VideoMode(WIDTH, HEIGHT, 32), "openGL", sf::Style::Default, settings);
 
 	glewExperimental = GLU_TRUE;
 
@@ -25,6 +28,8 @@ int main()
 		std::cout << "Failed to initialize GLEW" << std::endl;
 		return EXIT_FAILURE;
 	}
+
+	Aiko::Camera cam;
 
 	Aiko::Shader shader("basicvertex.glsl", "basicfragment.glsl");
 	shader.use();
@@ -43,11 +48,14 @@ int main()
 					break;
 			}
 		}
+
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 		shader.use();
+		shader.setCamera(cam);
 
 		// Draw code
+		shader.setObject(obj);
 		obj.render();
 
 		window.display();

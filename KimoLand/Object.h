@@ -2,6 +2,8 @@
 
 #include <GL/glew.h>
 
+#include "Transform.h"
+
 namespace Aiko {
 
 	class Object
@@ -11,11 +13,16 @@ namespace Aiko {
 		~Object();
 
 		void render();
+
+		Transform& getTranform();
+
 	private:
 
 		GLuint vao;
 		GLuint vbo;
 		GLuint ebo;
+
+		Transform transform;
 
 	};
 
