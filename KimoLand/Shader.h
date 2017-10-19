@@ -10,6 +10,7 @@
 
 #include "Camera.h"
 #include "Object.h"
+#include "definitions.h"
 
 namespace Aiko {
 

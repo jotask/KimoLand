@@ -93,6 +93,10 @@ namespace Aiko {
 	void Shader::use()
 	{
 		glUseProgram(this->program	);
+
+		if(WIREFRAME)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+
 	}
 
 	void Shader::unuse()
