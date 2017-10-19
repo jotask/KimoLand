@@ -3,10 +3,14 @@
 #include <random>
 #include <math.h>
 
+#include "definitions.h"
+
 namespace Aiko {
 
 	class PerlinNoise {
 	public:
+		PerlinNoise();
+		PerlinNoise(int seed);
 		PerlinNoise(int octaves, float amplitude, float roughness);
 		PerlinNoise(int seed, int octaves, float amplitude, float roughness);
 		~PerlinNoise();

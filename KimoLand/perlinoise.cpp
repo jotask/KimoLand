@@ -2,6 +2,18 @@
 
 namespace Aiko {
 	
+	PerlinNoise::PerlinNoise()
+		: seed(rand() % 1000000000), octaves(OCTAVES), amplitude(AMPLITUDE), roughness(ROUGHNESS)
+	{
+
+	}
+	
+	PerlinNoise::PerlinNoise(int seed)
+		: seed(seed), octaves(OCTAVES), amplitude(AMPLITUDE), roughness(ROUGHNESS)
+	{
+
+	}
+	
 	PerlinNoise::PerlinNoise(int octaves, float amplitude, float roughness)
 		: seed(rand() % 1000000000), octaves(octaves), amplitude(amplitude), roughness(roughness)
 	{
