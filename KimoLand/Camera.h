@@ -19,10 +19,15 @@ namespace Aiko {
 
 		void update();
 
+		void resize(unsigned int width, unsigned int height);
+
 		glm::mat4 getView();
 		glm::mat4 getProjection();
 
 	private:
+
+		unsigned int width = WIDTH;
+		unsigned int height = HEIGHT;
 		
 		Transform tranform;
 
