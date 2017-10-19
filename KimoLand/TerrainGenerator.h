@@ -4,6 +4,8 @@
 #include <iostream>
 
 #include "definitions.h"
+#include "perlin.hpp"
+#include "ColorGenerator.h"
 #include "Terrain.h"
 #include "Mesh.h"
 

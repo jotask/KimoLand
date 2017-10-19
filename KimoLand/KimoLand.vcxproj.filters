@@ -34,9 +34,6 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>source\opengl</Filter>
     </ClCompile>
-    <ClCompile Include="perlinoise.cpp">
-      <Filter>source\util</Filter>
-    </ClCompile>
     <ClCompile Include="ColorGenerator.cpp">
       <Filter>source\world</Filter>
     </ClCompile>
@@ -77,18 +74,20 @@
     <ClInclude Include="Mesh.h">
       <Filter>source\opengl</Filter>
     </ClInclude>
-    <ClInclude Include="perlinoise.h">
-      <Filter>source\util</Filter>
-    </ClInclude>
     <ClInclude Include="ColorGenerator.h">
       <Filter>source\world</Filter>
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>source\world</Filter>
     </ClInclude>
-    <ClInclude Include="World.h" />
     <ClInclude Include="TerrainGenerator.h">
       <Filter>source\world</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>source\world</Filter>
+    </ClInclude>
+    <ClInclude Include="perlin.hpp">
+      <Filter>source\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

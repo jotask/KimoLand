@@ -4,6 +4,8 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <glm/glm.hpp>
+
 #include "definitions.h"
 
 namespace Aiko {
@@ -14,9 +16,8 @@ namespace Aiko {
 		ColorGenerator();
 		~ColorGenerator();
 
-		std::vector< std::vector<sf::Color> > generateColors( std::vector< std::vector<float> > heights, float amplitude );
+		glm::vec3 generateColor(float height);
 
-	private:
 		float spread;
 		float halfSpread;
 

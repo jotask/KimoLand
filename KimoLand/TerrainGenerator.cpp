@@ -13,16 +13,26 @@ namespace Aiko {
 		float topLeftX = (width - 1) / -2.0f;
 		float topLeftZ = (height - 1) / -2.0f;
 
+		siv::PerlinNoise noise;
+
+		ColorGenerator color;
+
 		MeshData data(width, height);
 
 		int vertexIndex = 0;
+
+		const double fx = width / FREQUENCY;
+		const double fy = height / FREQUENCY;
 
 		for (int y = 0; y < height; y++) 
 		{
 			for (int x = 0; x < height; x++)
 			{
-				data.vertices[vertexIndex] = glm::vec3(topLeftX + x, 0.0f, topLeftZ + y);
-				data.colors[vertexIndex] = glm::vec3(x, 0.0f, y);
+
+				float h = (float) noise.octaveNoise0_1(x / fx, y / fy, OCTAVES);
+
+				data.vertices[vertexIndex] = glm::vec3(topLeftX + x, h, topLeftZ + y);
+				data.colors[vertexIndex] = color.generateColor(h);
 
 				if ((x < (width - 1)) && (y < (height - 1)))
 				{

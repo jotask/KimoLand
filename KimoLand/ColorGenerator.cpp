@@ -18,18 +18,10 @@ namespace Aiko {
 	{
 	}
 
-	std::vector<std::vector<sf::Color>> ColorGenerator::generateColors(std::vector<std::vector<float>> heights, float amplitude)
+	glm::vec3 ColorGenerator::generateColor(float height)
 	{
-		std::vector<std::vector<sf::Color>> colors(heights.size(), std::vector<sf::Color>(heights[0].size()));
-
-		for (int z = 0; z < heights.size(); z++)
-		{
-			for (int x = 0; x < heights[z].size(); x++)
-			{
-				colors[z][x] = calculateColor(heights[z][x], amplitude);
-			}
-		}
-		return colors;
+		sf::Color c = calculateColor(height, 10.0f);
+		return glm::vec3(c.r, c.g, c.b);
 	}
 
 
