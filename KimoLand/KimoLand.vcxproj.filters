@@ -10,6 +10,12 @@
     <Filter Include="source\opengl">
       <UniqueIdentifier>{124aa279-d15c-41fd-ab10-0f46365a1cec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\util">
+      <UniqueIdentifier>{2fd30d91-79cf-4c42-9927-a97b3b3bb8aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\world">
+      <UniqueIdentifier>{3188386f-bb02-4432-9306-e12076918115}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -24,6 +30,24 @@
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>source\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>source\opengl</Filter>
+    </ClCompile>
+    <ClCompile Include="perlinoise.cpp">
+      <Filter>source\util</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorGenerator.cpp">
+      <Filter>source\world</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>source\world</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>source\world</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainGenerator.cpp">
+      <Filter>source\world</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +73,22 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>source\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>source\opengl</Filter>
+    </ClInclude>
+    <ClInclude Include="perlinoise.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorGenerator.h">
+      <Filter>source\world</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>source\world</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h" />
+    <ClInclude Include="TerrainGenerator.h">
+      <Filter>source\world</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

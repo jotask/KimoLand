@@ -6,7 +6,7 @@
 
 #include "Shader.h"
 #include "Camera.h"
-#include "Object.h"
+#include "World.h"
 
 int main()
 {
@@ -34,7 +34,7 @@ int main()
 	Aiko::Shader shader("basicvertex.glsl", "basicfragment.glsl");
 	shader.use();
 
-	Aiko::Object obj;
+	Aiko::World world;
 
 	while (window.isOpen())
 	{
@@ -45,6 +45,9 @@ int main()
 			{
 				case sf::Event::Closed:
 					window.close();
+					break;
+				case sf::Event::Resized :
+					cam.resize(event.size.width, event.size.height);
 					break;
 			}
 		}
@@ -57,8 +60,7 @@ int main()
 		shader.setCamera(cam);
 
 		// Draw code
-		shader.setObject(obj);
-		obj.render();
+		world.render(shader);
 
 		window.display();
 

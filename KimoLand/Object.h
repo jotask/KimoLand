@@ -1,8 +1,7 @@
 #pragma once
 
-#include <GL/glew.h>
-
 #include "Transform.h"
+#include "Mesh.h"
 
 namespace Aiko {
 
@@ -12,16 +11,12 @@ namespace Aiko {
 		Object();
 		~Object();
 
-		void render();
-
 		Transform& getTranform();
 
-	private:
+		virtual void update() = 0;
+		virtual void render() = 0;
 
-		GLuint vao;
-		GLuint vbo;
-		GLuint vcolor;
-		GLuint ebo;
+	protected:
 
 		Transform transform;
 
