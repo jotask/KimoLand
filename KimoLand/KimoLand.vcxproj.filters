@@ -7,33 +7,27 @@
     <Filter Include="source">
       <UniqueIdentifier>{9af431ac-4c2a-4eea-b39e-6424162175ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\opengl">
-      <UniqueIdentifier>{124aa279-d15c-41fd-ab10-0f46365a1cec}</UniqueIdentifier>
+    <Filter Include="source\world">
+      <UniqueIdentifier>{3188386f-bb02-4432-9306-e12076918115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine">
+      <UniqueIdentifier>{fa644118-fe4f-49c3-b52a-eea16010aabd}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\util">
       <UniqueIdentifier>{2fd30d91-79cf-4c42-9927-a97b3b3bb8aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\world">
-      <UniqueIdentifier>{3188386f-bb02-4432-9306-e12076918115}</UniqueIdentifier>
+    <Filter Include="source\engine\components">
+      <UniqueIdentifier>{34722a38-4b05-46c8-8ab2-dbcc8e7da46d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\shaders">
+      <UniqueIdentifier>{2ba43e69-655d-46dd-b4b6-59731e4b9cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\lights">
+      <UniqueIdentifier>{a62d61ba-ab0d-4542-aac2-9a678f246c6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Shader.cpp">
-      <Filter>source\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>source\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>source\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>source\opengl</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>source\opengl</Filter>
-    </ClCompile>
     <ClCompile Include="ColorGenerator.cpp">
       <Filter>source\world</Filter>
     </ClCompile>
@@ -46,6 +40,27 @@
     <ClCompile Include="TerrainGenerator.cpp">
       <Filter>source\world</Filter>
     </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>source\engine\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>source\engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>source\engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>source\engine\lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="basicfragment.glsl">
@@ -56,23 +71,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
-      <Filter>source\opengl</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>source\opengl</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>source\opengl</Filter>
-    </ClInclude>
     <ClInclude Include="definitions.h">
       <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>source\opengl</Filter>
-    </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>source\opengl</Filter>
     </ClInclude>
     <ClInclude Include="ColorGenerator.h">
       <Filter>source\world</Filter>
@@ -91,6 +91,27 @@
     </ClInclude>
     <ClInclude Include="Util.hpp">
       <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>source\engine\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>source\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>source\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>source\engine\lights</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

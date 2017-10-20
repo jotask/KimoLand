@@ -1,6 +1,11 @@
 #include "Shader.h"
 
 namespace Aiko {
+	Shader::Shader()
+		: Shader("basicvertex.glsl", "basicfragment.glsl")
+	{
+	}
+
 	Shader::Shader(const std::string vertex_file, const std::string fragment_file)
 	{
 		// 1. retrieve the vertex/fragment source code from filePath
@@ -68,6 +73,11 @@ namespace Aiko {
 		program = glCreateProgram();
 		glAttachShader(program, vertex);
 		glAttachShader(program, fragment);
+
+		this->bindAttribute(0, "pos");
+		this->bindAttribute(1, "col");
+		this->bindAttribute(2, "nor");
+
 		glLinkProgram(program);
 
 		// print linking errors if any
@@ -87,17 +97,19 @@ namespace Aiko {
 
 	Shader::~Shader()
 	{
-
+		this->end();
+		glDeleteProgram( this->program );
 	}
 
-	void Shader::use()
+	void Shader::start()
 	{
-		glUseProgram(this->program	);
+		glUseProgram( this->program	);
 	}
 
 
-	void Shader::unuse()
+	void Shader::end()
 	{
+		glUseProgram( 0 );
 	}
 
 	void Shader::prepare()
@@ -127,9 +139,25 @@ namespace Aiko {
 		glUniformMatrix4fv( getLocation( name ), 1, GL_FALSE, &mat[0][0] );
 	}
 
+	void Shader::setVec3(const std::string name, const glm::vec3 vec)
+	{
+		glUniform3fv( getLocation( name ), 1, &vec[0] );
+	}
+
+	void Shader::bindAttribute(int attribute, std::string variablename)
+	{
+		glBindAttribLocation( this->program, attribute, variablename.c_str() );
+	}
+
 	GLuint Shader::getLocation(const std::string name)
 	{
 		return glGetUniformLocation( this->program, name.c_str() );
+	}
+
+	void Shader::setLight(Light & light)
+	{
+		this->setVec3("lightPos", light.transform.position);
+		this->setVec3("lighColor", light.color);
 	}
 
 }

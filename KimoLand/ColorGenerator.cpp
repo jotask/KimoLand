@@ -4,11 +4,11 @@ namespace Aiko {
 
 	ColorGenerator::ColorGenerator()
 		:biomeColours( {
-			glm::vec3(0.201f, 0.178f, 0.99f),
-			glm::vec3(0.135f, 0.184f, 0.82f),
-			glm::vec3(0.80f, 0.171f, 0.93f),
-			glm::vec3(0.120f, 0.120f, 0.120f),
-			glm::vec3(0.200f, 0.200f, 0.200f)
+			glm::vec3(0.79f, 0.7, 0.39),
+			glm::vec3(0.53f, 0.72f, 0.32f),
+			glm::vec3(0.31f, 0.67f, 0.36f),
+			glm::vec3(0.47f, 0.47f, 0.47f),
+			glm::vec3(0.78f, 0.78f, 0.78f)
 			}
 		), spread(COLOUR_SPREAD), halfSpread( COLOUR_SPREAD / 2.0f ), part ( 1.0f / (biomeColours.size() - 1) )
 	{
@@ -25,8 +25,8 @@ namespace Aiko {
 		value = height;
 		int firstBiome = floor( value / part );
 		float blend = ( value - ( firstBiome * part ) ) / part;
-		return biomeColours[firstBiome];
-		//return interpolateColor(biomeColours[firstBiome], biomeColours[firstBiome + 1], blend);
+		//return biomeColours[firstBiome];
+		return interpolateColor(biomeColours[firstBiome], biomeColours[firstBiome + 1], blend);
 	}
 
 	glm::vec3 ColorGenerator::interpolateColor(glm::vec3 c1, glm::vec3 c2, float blend)

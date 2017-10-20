@@ -16,6 +16,7 @@ namespace Aiko {
 	struct MeshData {
 		std::vector<glm::vec3> vertices;
 		std::vector<glm::vec3> colors;
+		std::vector<glm::vec3> normals;
 		std::vector<GLuint> triangles;
 		int triangleIndex;
 		MeshData(int width, int height)
@@ -37,7 +38,13 @@ namespace Aiko {
 
 		Terrain* generateTerrain();
 
+	private:
+
 		void addTriangle(MeshData& data, int a, int b, int c);
+
+		void calculateNormals(MeshData&data);
+
+		glm::vec3 calculateNormal(glm::vec3 a, glm::vec3 b, glm::vec3 c);
 
 	};
 

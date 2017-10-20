@@ -9,8 +9,8 @@
 // Camera definitions
 #define FOV 45.0f
 #define ROTATE true
-#define CAM_RADIUS 100.0f
-#define CAM_Y 30.0f;
+#define CAM_RADIUS 10.0f // 100
+#define CAM_Y 10.0f; // 30
 
 // Perlin noise
 #define OCTAVES 3

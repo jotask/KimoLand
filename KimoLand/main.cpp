@@ -31,8 +31,7 @@ int main()
 
 	Aiko::Camera cam;
 
-	Aiko::Shader shader("basicvertex.glsl", "basicfragment.glsl");
-	shader.use();
+	Aiko::Shader shader("terrainvertex.glsl","terrainfragment.glsl");
 
 	Aiko::World world;
 
@@ -52,15 +51,18 @@ int main()
 			}
 		}
 
+		world.update();
 		cam.update();
 
 		shader.prepare();
 
-		shader.use();
+		shader.start();
 		shader.setCamera(cam);
 
 		// Draw code
 		world.render(shader);
+
+		shader.end();
 
 		window.display();
 
