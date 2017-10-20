@@ -89,5 +89,8 @@
     <ClInclude Include="perlin.hpp">
       <Filter>source\util</Filter>
     </ClInclude>
+    <ClInclude Include="Util.hpp">
+      <Filter>source\util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -93,14 +93,22 @@ namespace Aiko {
 	void Shader::use()
 	{
 		glUseProgram(this->program	);
-
-		if(WIREFRAME)
-			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
 	}
+
 
 	void Shader::unuse()
 	{
+	}
+
+	void Shader::prepare()
+	{
+		glEnable(GL_DEPTH_TEST);
+
+		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		if (WIREFRAME)
+			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	}
 
 	void Shader::setCamera(Aiko::Camera& cam)

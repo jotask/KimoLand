@@ -4,7 +4,7 @@
 #define HEIGHT 600
 
 // SHADER
-#define WIREFRAME true
+#define WIREFRAME false
 
 // Camera definitions
 #define FOV 45.0f

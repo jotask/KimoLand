@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include <SFML/Graphics.hpp>
-
 #include <glm/glm.hpp>
+
+#include "Util.hpp"
 
 #include "definitions.h"
 
@@ -16,19 +16,15 @@ namespace Aiko {
 		ColorGenerator();
 		~ColorGenerator();
 
-		glm::vec3 generateColor(float height);
-
 		float spread;
 		float halfSpread;
 
-		std::vector<sf::Color> biomeColours;
+		std::vector<glm::vec3> biomeColours;
 		float part;
 
-		float clamp(float value, float min, float max);
+		glm::vec3 calculateColor( float height, float amplitude );
 
-		sf::Color calculateColor( float height, float amplitude );
-
-		sf::Color interpolateColor(sf::Color c1, sf::Color c2, float blend);
+		glm::vec3 interpolateColor(glm::vec3 c1, glm::vec3 c2, float blend);
 
 
 	};

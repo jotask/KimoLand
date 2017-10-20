@@ -9,6 +9,8 @@
 #include "Terrain.h"
 #include "Mesh.h"
 
+#include "Util.hpp"
+
 namespace Aiko {
 
 	struct MeshData {

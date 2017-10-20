@@ -23,6 +23,8 @@ namespace Aiko {
 		void use();
 		void unuse();
 
+		void prepare();
+
 		void setCamera(Aiko::Camera& cam);
 		void setObject(Aiko::Object& obj);
 

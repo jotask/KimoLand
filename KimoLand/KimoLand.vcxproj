@@ -141,6 +141,7 @@
     <ClInclude Include="Terrain.h" />
     <ClInclude Include="TerrainGenerator.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="Util.hpp" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>

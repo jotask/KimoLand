@@ -31,8 +31,11 @@ namespace Aiko {
 
 				float h = (float) noise.octaveNoise0_1(x / fx, y / fy, OCTAVES);
 
+				data.colors[vertexIndex] = color.calculateColor(h, 1.0f);
+
+				h = Util::map(h, 0.0f, 1.0f, 0.0f, 10.0f);
+
 				data.vertices[vertexIndex] = glm::vec3(topLeftX + x, h, topLeftZ + y);
-				data.colors[vertexIndex] = color.generateColor(h);
 
 				if ((x < (width - 1)) && (y < (height - 1)))
 				{
