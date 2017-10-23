@@ -2,7 +2,8 @@
 
 namespace Aiko {
 
-	Mesh::Mesh()
+	Mesh::Mesh(Object& obj)
+		: Component ("mesh", obj)
 	{
 	}
 
@@ -14,7 +15,7 @@ namespace Aiko {
 		glDeleteBuffers(1, &ebo);
 	}
 
-	Mesh* Mesh::createQuad()
+	Mesh* Mesh::createQuad(Object& obj)
 	{
 
 		const std::vector<glm::vec3> vertices{
@@ -46,14 +47,14 @@ namespace Aiko {
 		// TODO change this by using a shared pointer maybe
 		// needs to do more research
 
-		Mesh* mesh = new Mesh();
+		Mesh* mesh = new Mesh(obj);
 		mesh->create(vertices, colors, indices, normals);
 
 		return mesh;
 
 	}
 
-	Mesh * Mesh::createCube()
+	Mesh * Mesh::createCube(Object& obj)
 	{
 
 		const std::vector<glm::vec3> vertices{
@@ -124,10 +125,14 @@ namespace Aiko {
 		// TODO change this by using a shared pointer maybe
 		// needs to do more research
 
-		Mesh* mesh = new Mesh();
+		Mesh* mesh = new Mesh(obj);
 		mesh->create(vertices, colors, indices, normals);
 
 		return mesh;
+	}
+
+	void Mesh::update()
+	{
 	}
 
 	void Mesh::create(const std::vector<glm::vec3> vertices, const std::vector<glm::vec3> colors,
@@ -168,50 +173,11 @@ namespace Aiko {
 
 		glBindVertexArray(0);
 
-		/*
-
-		glGenBuffers(1, &vbo);
-		glGenBuffers(1, &vcolor);
-		glGenBuffers(1, &vnorm);
-		glGenBuffers(1, &ebo);
-
-		// bind the Vertex Array Object first, then bind and set vertex buffer(s), and
-		// then configure vertex attributes(s).
-		glBindVertexArray(vao);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glBufferData(GL_ARRAY_BUFFER, 3 * vertices.size() * sizeof(GLfloat), vertices.data(), GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vcolor);
-		glBufferData(GL_ARRAY_BUFFER, 3 * colors.size() * sizeof(GLfloat), colors.data(), GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vnorm);
-		glBufferData(GL_ARRAY_BUFFER, 3 * normals.size() * sizeof(GLfloat), normals.data(), GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices.front(), GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vbo);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vcolor);
-		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-		glBindBuffer(GL_ARRAY_BUFFER, vcolor);
-		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-
-		glEnableVertexAttribArray(0);
-		glEnableVertexAttribArray(1);
-		glEnableVertexAttribArray(2);
-
-		glBindVertexArray(0);
-
-		*/
-
 	}
 
-	void Mesh::render()
+	void Mesh::render(Renderer& renderer)
 	{
+
 		glBindVertexArray(vao);
 
 		glEnableVertexAttribArray(0);

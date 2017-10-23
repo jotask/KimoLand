@@ -9,7 +9,7 @@ uniform mat4 view;
 uniform mat4 projection;
 
 uniform vec3 lightPos;
-uniform vec3 lighColor;
+uniform vec3 lightColor;
 
 out vec3 _color;
 out vec3 _surfaceNormal;

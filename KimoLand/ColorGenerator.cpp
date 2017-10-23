@@ -23,10 +23,11 @@ namespace Aiko {
 		float value = ( height + amplitude ) / ( amplitude * 2.0f );
 		value = Util::clamp(( value - halfSpread ) * ( 1.0f / spread ) , 0.0f, 0.9999f);
 		value = height;
-		int firstBiome = floor( value / part );
+		float tmp = floor( value / part );
+		int firstBiome = ( (int) tmp );
 		float blend = ( value - ( firstBiome * part ) ) / part;
-		//return biomeColours[firstBiome];
-		return interpolateColor(biomeColours[firstBiome], biomeColours[firstBiome + 1], blend);
+		return biomeColours[firstBiome];
+		//return interpolateColor(biomeColours[firstBiome], biomeColours[firstBiome + 1], blend);
 	}
 
 	glm::vec3 ColorGenerator::interpolateColor(glm::vec3 c1, glm::vec3 c2, float blend)

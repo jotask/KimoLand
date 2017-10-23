@@ -4,11 +4,12 @@ namespace Aiko {
 
 	Transform::Transform()
 	{
-	}
 
+	}
 
 	Transform::~Transform()
 	{
+
 	}
 
 	glm::mat4 Transform::getModel()

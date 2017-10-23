@@ -2,23 +2,30 @@
 
 #include <glm/glm.hpp>
 
-#include "Mesh.h"
-#include "Object.h"
+#include "Component.h"
 
 namespace Aiko {
 
-	class Light : public Object
+	class Object;
+
+	class Light : public Component
 	{
 	public:
-		Light();
+		Light(Object& obj);
 		~Light();
 
-		virtual void update() override;
-		virtual void render() override;
+		static int NUMBER_LIGTHS;
 
-		glm::vec3 color;
+		virtual void update();
+		virtual void render(Renderer& renderer);
 
-		Mesh* mesh;
+		glm::vec3 color = glm::vec3(0.78f, 0.47f, 0.36f);
+
+		glm::vec3 ambient;
+		glm::vec3 diffuse;
+		glm::vec3 specular;
+		
+		const int id;
 
 	};
 

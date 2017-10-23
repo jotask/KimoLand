@@ -5,7 +5,7 @@ namespace Aiko {
 	TerrainGenerator::TerrainGenerator() { }
 	TerrainGenerator::~TerrainGenerator() { }
 
-	Terrain * TerrainGenerator::generateTerrain()
+	Mesh * TerrainGenerator::generateTerrain(int _x, int _y, Object& obj)
 	{
 		int width = TERRAIN_SIZE + 1;
 		int height = TERRAIN_SIZE + 1;
@@ -21,19 +21,19 @@ namespace Aiko {
 
 		int vertexIndex = 0;
 
-		const double fx = width / FREQUENCY;
-		const double fy = height / FREQUENCY;
+		const double fx = (width / FREQUENCY) * PERLIN_NOISE;
+		const double fy = (height / FREQUENCY) * PERLIN_NOISE;
 
 		for (int y = 0; y < height; y++) 
 		{
 			for (int x = 0; x < height; x++)
 			{
 
-				float h = (float) noise.octaveNoise0_1(x / fx, y / fy, OCTAVES);
+				float h = (float) noise.octaveNoise0_1((_x + x) / fx, (_y + y) / fy, OCTAVES);
 
 				data.colors[vertexIndex] = color.calculateColor(h, 1.0f);
 
-				//h = Util::map(h, 0.0f, 1.0f, 0.0f, 10.0f);
+				h = Util::map(h, 0.0f, 1.0f, 0.0f, AMPLITUDE);
 
 				data.vertices[vertexIndex] = glm::vec3(topLeftX + x, h, topLeftZ + y);
 
@@ -49,16 +49,15 @@ namespace Aiko {
 
 		calculateNormals(data);
 
-		std::cout << data.vertices.size() << " : " << data.triangles.size() << " : " << data.normals.size() << std::endl;
+		// std::cout << data.vertices.size() << " : " << data.triangles.size() << " : " << data.normals.size() << std::endl;
 
-		Mesh* mesh = new Mesh();
+		Mesh* mesh = new Mesh(obj);
 
 		mesh->create(data.vertices, data.colors, data.triangles, data.normals);
 
-		Terrain* terrain = new Terrain(*mesh);
-
-		return terrain;
+		return mesh;
 	}
+
 
 	void TerrainGenerator::addTriangle(MeshData & data, int a, int b, int c)
 	{
@@ -70,7 +69,7 @@ namespace Aiko {
 
 	void TerrainGenerator::calculateNormals(MeshData & data)
 	{
-		for (int i = 0; i < data.triangles.size(); i += 3)
+		for (unsigned int i = 0; i < data.triangles.size(); i += 3)
 		{
 			glm::vec3 a = data.vertices.at( data.triangles.at( i + 0 ) );
 			glm::vec3 b = data.vertices.at( data.triangles.at( i + 1 ) );

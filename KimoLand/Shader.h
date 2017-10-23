@@ -9,8 +9,6 @@
 #include <glm/glm.hpp>
 
 #include "Camera.h"
-#include "Object.h"
-#include "Light.h"
 #include "definitions.h"
 
 namespace Aiko {
@@ -27,12 +25,6 @@ namespace Aiko {
 
 		void prepare();
 
-		void setCamera(Aiko::Camera& cam);
-		void setObject(Aiko::Object& obj);
-
-		void setLight(Light& light);
-
-	protected:
 		GLuint program;
 
 		void bindAttribute(int attribute, std::string variablename);

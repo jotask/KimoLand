@@ -123,17 +123,6 @@ namespace Aiko {
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	}
 
-	void Shader::setCamera(Aiko::Camera& cam)
-	{
-		setMat4( "view", cam.getView() );
-		setMat4( "projection", cam.getProjection());
-	}
-
-	void Shader::setObject(Aiko::Object & obj)
-	{
-		setMat4("model", obj.getTranform().getModel() );
-	}
-
 	void Shader::setMat4(const std::string name, const glm::mat4 mat)
 	{
 		glUniformMatrix4fv( getLocation( name ), 1, GL_FALSE, &mat[0][0] );
@@ -141,7 +130,7 @@ namespace Aiko {
 
 	void Shader::setVec3(const std::string name, const glm::vec3 vec)
 	{
-		glUniform3fv( getLocation( name ), 1, &vec[0] );
+		glUniform3f( getLocation( name ), vec.x, vec.y, vec.z );
 	}
 
 	void Shader::bindAttribute(int attribute, std::string variablename)
@@ -151,13 +140,16 @@ namespace Aiko {
 
 	GLuint Shader::getLocation(const std::string name)
 	{
-		return glGetUniformLocation( this->program, name.c_str() );
-	}
 
-	void Shader::setLight(Light & light)
-	{
-		this->setVec3("lightPos", light.transform.position);
-		this->setVec3("lighColor", light.color);
+		GLuint location = glGetUniformLocation(this->program, name.c_str());
+
+		if (location == -1)
+		{
+			std::cout << "ERROR " << name << std::endl;
+		}
+
+		return location;
+
 	}
 
 }

@@ -1,10 +1,14 @@
 #include "Light.h"
+#include "Object.h"
 
 namespace Aiko {
 
-	Light::Light()
+	int Light::NUMBER_LIGTHS = 0;
+
+	Light::Light(Object& obj)
+		: Component("light", obj)
+		, id(NUMBER_LIGTHS++)
 	{
-		mesh = Mesh::createCube();
 
 	}
 
@@ -17,9 +21,13 @@ namespace Aiko {
 	{
 	}
 
-	void Light::render()
+	void Light::render(Renderer& renderer)
 	{
-		this->mesh->render();
+		Shader& s = renderer.getShader();
+
+		s.setVec3("lightPos", this->obj.getTransform().position);
+		s.setVec3("lightColor", this->color);
+
 	}
 
 }

@@ -6,12 +6,13 @@
 #include "definitions.h"
 #include "perlin.hpp"
 #include "ColorGenerator.h"
-#include "Terrain.h"
 #include "Mesh.h"
 
 #include "Util.hpp"
 
 namespace Aiko {
+
+	class Object;
 
 	struct MeshData {
 		std::vector<glm::vec3> vertices;
@@ -36,7 +37,7 @@ namespace Aiko {
 		TerrainGenerator();
 		~TerrainGenerator();
 
-		Terrain* generateTerrain();
+		Mesh* generateTerrain(int x, int y, Object& obj);
 
 	private:
 

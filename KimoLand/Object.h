@@ -1,6 +1,14 @@
 #pragma once
 
+#include <iostream>
+
+#include <map>
+#include <exception>
+
+#include "Renderer.h"
+
 #include "Transform.h"
+#include "Component.h"
 
 namespace Aiko {
 
@@ -10,12 +18,20 @@ namespace Aiko {
 		Object();
 		~Object();
 
-		Transform& getTranform();
+		virtual void update();
+		virtual void render(Renderer& renderer);
 
-		virtual void update() = 0;
-		virtual void render() = 0;
+		Transform& getTransform();
+
+	protected:
+
+		void addComponent(Component* component);
+
+	private:
 
 		Transform transform;
+
+		std::map<std::string, Component*> components;
 
 	};
 

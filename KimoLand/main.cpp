@@ -1,72 +1,13 @@
 #include <iostream>
-#include <GL/glew.h>
-#include <SFML/Window.hpp>
 
-#include "definitions.h"
-
-#include "Shader.h"
-#include "Camera.h"
-#include "World.h"
+#include "Engine.h"
 
 int main()
 {
 
-	sf::ContextSettings settings;
-	settings.depthBits = 24;
-	settings.stencilBits = 8;
-	settings.majorVersion = 3;
-	settings.minorVersion = 3;
-	settings.attributeFlags = sf::ContextSettings::Core;
+	Aiko::Engine eng;
 
-	sf::Window window;
-	window.create(sf::VideoMode(WIDTH, HEIGHT, 32), "openGL", sf::Style::Default, settings);
-
-	glewExperimental = GLU_TRUE;
-
-	if (GLEW_OK != glewInit())
-	{
-		std::cout << "Failed to initialize GLEW" << std::endl;
-		return EXIT_FAILURE;
-	}
-
-	Aiko::Camera cam;
-
-	Aiko::Shader shader("terrainvertex.glsl","terrainfragment.glsl");
-
-	Aiko::World world;
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			switch (event.type)
-			{
-				case sf::Event::Closed:
-					window.close();
-					break;
-				case sf::Event::Resized :
-					cam.resize(event.size.width, event.size.height);
-					break;
-			}
-		}
-
-		world.update();
-		cam.update();
-
-		shader.prepare();
-
-		shader.start();
-		shader.setCamera(cam);
-
-		// Draw code
-		world.render(shader);
-
-		shader.end();
-
-		window.display();
-
-	}
+	eng.run();
 
 	return EXIT_SUCCESS;
 	

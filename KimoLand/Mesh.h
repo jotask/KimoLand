@@ -11,19 +11,22 @@
 
 namespace Aiko {
 
-	class Mesh
+	class Object;
+
+	class Mesh : public Component
 	{
 	public:
-		Mesh();
+		Mesh(Object& obj);
 		~Mesh();
 
-		static Mesh* createQuad();
-		static Mesh* createCube();
+		static Mesh* createQuad(Object& obj);
+		static Mesh* createCube(Object& obj);
+
+		virtual void update();
+		virtual void render(Renderer& renderer);
 
 		void create(const std::vector<glm::vec3> vertices, const std::vector<glm::vec3> colours,
 			const std::vector<GLuint> indices, const std::vector<glm::vec3> normals);
-
-		void render();
 		 
 	private:
 

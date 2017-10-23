@@ -7,41 +7,56 @@
     <Filter Include="source">
       <UniqueIdentifier>{9af431ac-4c2a-4eea-b39e-6424162175ca}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\world">
-      <UniqueIdentifier>{3188386f-bb02-4432-9306-e12076918115}</UniqueIdentifier>
+    <Filter Include="source\game">
+      <UniqueIdentifier>{317ac355-2512-4bc0-8b37-da65029d2a10}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\engine">
-      <UniqueIdentifier>{fa644118-fe4f-49c3-b52a-eea16010aabd}</UniqueIdentifier>
+      <UniqueIdentifier>{531e1352-f1ca-4524-ab03-ddd1aaa6651c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\interfaces">
+      <UniqueIdentifier>{5e6400a0-2912-4554-bbf6-7b6096db479f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\graphics">
+      <UniqueIdentifier>{57683a83-f17a-474f-99db-9eaeaa877239}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\graphics\shaders">
+      <UniqueIdentifier>{2ba43e69-655d-46dd-b4b6-59731e4b9cb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\engine\components">
+      <UniqueIdentifier>{7c395d64-0c36-40f3-8f7d-2a8d2a99eb16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\game\world">
+      <UniqueIdentifier>{3188386f-bb02-4432-9306-e12076918115}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\util">
       <UniqueIdentifier>{2fd30d91-79cf-4c42-9927-a97b3b3bb8aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\engine\components">
-      <UniqueIdentifier>{34722a38-4b05-46c8-8ab2-dbcc8e7da46d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\engine\shaders">
-      <UniqueIdentifier>{2ba43e69-655d-46dd-b4b6-59731e4b9cb3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source\engine\lights">
-      <UniqueIdentifier>{a62d61ba-ab0d-4542-aac2-9a678f246c6f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ColorGenerator.cpp">
-      <Filter>source\world</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>source\world</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>source\world</Filter>
+      <Filter>source\game\world</Filter>
     </ClCompile>
     <ClCompile Include="TerrainGenerator.cpp">
-      <Filter>source\world</Filter>
+      <Filter>source\game\world</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>source\engine\shaders</Filter>
+      <Filter>source\engine\graphics\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Display.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>source\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>source\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>source\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>source\engine</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>source\engine\components</Filter>
@@ -49,17 +64,20 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>source\engine\components</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>source\engine</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>source\engine</Filter>
+      <Filter>source\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>source\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>source\engine\graphics</Filter>
     </ClCompile>
     <ClCompile Include="Light.cpp">
-      <Filter>source\engine\lights</Filter>
+      <Filter>source\engine\components</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>source\engine</Filter>
+    <ClCompile Include="Sun.cpp">
+      <Filter>source\game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,22 +87,19 @@
     <None Include="basicvertex.glsl">
       <Filter>assets</Filter>
     </None>
+    <None Include="terrainfragment.glsl">
+      <Filter>assets</Filter>
+    </None>
+    <None Include="terrainvertex.glsl">
+      <Filter>assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="definitions.h">
-      <Filter>source</Filter>
-    </ClInclude>
     <ClInclude Include="ColorGenerator.h">
-      <Filter>source\world</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>source\world</Filter>
+      <Filter>source\game\world</Filter>
     </ClInclude>
     <ClInclude Include="TerrainGenerator.h">
-      <Filter>source\world</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>source\world</Filter>
+      <Filter>source\game\world</Filter>
     </ClInclude>
     <ClInclude Include="perlin.hpp">
       <Filter>source\util</Filter>
@@ -93,7 +108,28 @@
       <Filter>source\util</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>source\engine\shaders</Filter>
+      <Filter>source\engine\graphics\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="definitions.h">
+      <Filter>source\util</Filter>
+    </ClInclude>
+    <ClInclude Include="State.hpp">
+      <Filter>source\engine\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Display.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>source\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>source\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>source\engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>source\engine</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>source\engine\components</Filter>
@@ -101,17 +137,20 @@
     <ClInclude Include="Mesh.h">
       <Filter>source\engine\components</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>source\engine</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>source\engine</Filter>
+      <Filter>source\engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>source\engine</Filter>
+    <ClInclude Include="Chunk.h">
+      <Filter>source\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>source\engine\graphics</Filter>
     </ClInclude>
     <ClInclude Include="Light.h">
-      <Filter>source\engine\lights</Filter>
+      <Filter>source\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="Sun.h">
+      <Filter>source\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
