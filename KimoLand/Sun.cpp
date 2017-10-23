@@ -5,7 +5,7 @@ namespace Aiko {
 	Sun::Sun()
 	{
 
-		this->getTransform().position.y = 100.0f;
+		this->getTransform().position.y = 30.0f;
 
 		Mesh* mesh = Mesh::createCube(*this);
 		this->addComponent( mesh );

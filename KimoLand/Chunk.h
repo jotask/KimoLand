@@ -10,10 +10,13 @@ namespace Aiko {
 	class Chunk : public Object
 	{
 	public:
-		Chunk();
+		Chunk(int x, int y);
 		~Chunk();
 
 	private:
+
+		int x;
+		int y;
 
 	};
 

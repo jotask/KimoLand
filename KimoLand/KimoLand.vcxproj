@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
+    <ClCompile Include="ChunkManager.cpp" />
     <ClCompile Include="ColorGenerator.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Display.cpp" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
+    <ClInclude Include="ChunkManager.h" />
     <ClInclude Include="ColorGenerator.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="definitions.h" />

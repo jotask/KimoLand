@@ -17,6 +17,12 @@ namespace Aiko {
 
 		ColorGenerator color;
 
+		glm::vec3 c(
+			((double)rand() / (RAND_MAX)) + 1,
+			((double)rand() / (RAND_MAX)) + 1,
+			((double)rand() / (RAND_MAX)) + 1
+		);
+
 		MeshData data(width, height);
 
 		int vertexIndex = 0;
@@ -29,9 +35,11 @@ namespace Aiko {
 			for (int x = 0; x < height; x++)
 			{
 
-				float h = (float) noise.octaveNoise0_1((_x + x) / fx, (_y + y) / fy, OCTAVES);
+				float h = (float) noise.octaveNoise0_1(((_x * TERRAIN_SIZE) + x) / fx, ((_y * TERRAIN_SIZE) + y) / fy, OCTAVES);
 
-				data.colors[vertexIndex] = color.calculateColor(h, 1.0f);
+				//data.colors[vertexIndex] = color.calculateColor(h, 1.0f);
+
+				data.colors[vertexIndex] = c;
 
 				h = Util::map(h, 0.0f, 1.0f, 0.0f, AMPLITUDE);
 

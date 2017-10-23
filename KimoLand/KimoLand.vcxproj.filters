@@ -67,9 +67,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>source\engine\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Chunk.cpp">
-      <Filter>source\game</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>source\engine\graphics</Filter>
     </ClCompile>
@@ -78,6 +75,12 @@
     </ClCompile>
     <ClCompile Include="Sun.cpp">
       <Filter>source\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>source\game\world</Filter>
+    </ClCompile>
+    <ClCompile Include="ChunkManager.cpp">
+      <Filter>source\game\world</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +143,6 @@
     <ClInclude Include="Camera.h">
       <Filter>source\engine\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Chunk.h">
-      <Filter>source\game</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>source\engine\graphics</Filter>
     </ClInclude>
@@ -151,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="Sun.h">
       <Filter>source\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>source\game\world</Filter>
+    </ClInclude>
+    <ClInclude Include="ChunkManager.h">
+      <Filter>source\game\world</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

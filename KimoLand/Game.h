@@ -4,7 +4,7 @@
 
 #include "Renderer.h"
 #include "Camera.h"
-#include "Chunk.h"
+#include "ChunkManager.h"
 #include "Sun.h"
 
 namespace Aiko {
@@ -24,7 +24,7 @@ namespace Aiko {
 
 		Camera cam;
 
-		Chunk chunk;
+		ChunkManager chunk;
 		Sun sun;
 
 	};
