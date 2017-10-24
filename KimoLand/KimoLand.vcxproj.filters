@@ -82,6 +82,8 @@
     <ClCompile Include="ChunkManager.cpp">
       <Filter>source\game\world</Filter>
     </ClCompile>
+    <ClCompile Include="World.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="basicfragment.glsl">
@@ -158,5 +160,7 @@
     <ClInclude Include="ChunkManager.h">
       <Filter>source\game\world</Filter>
     </ClInclude>
+    <ClInclude Include="World.h" />
+    <ClInclude Include="RigidBody.h" />
   </ItemGroup>
 </Project>
