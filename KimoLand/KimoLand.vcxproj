@@ -75,7 +75,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Jose\Code\API\glm;C:\Users\Jose\Code\API\SFML\include;C:\Users\Jose\Code\API\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Jose\Code\API\bullet3-2.87\src;C:\Users\Jose\Code\API\glm;C:\Users\Jose\Code\API\SFML\include;C:\Users\Jose\Code\API\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\Jose\Code\API\SFML\lib;C:\Users\Jose\Code\API\glew\lib\Release\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -96,7 +97,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Jose\Code\API\glm;C:\Users\Jose\Code\API\SFML\include;C:\Users\Jose\Code\API\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Jose\Code\API\bullet3-2.87\src;C:\Users\Jose\Code\API\glm;C:\Users\Jose\Code\API\SFML\include;C:\Users\Jose\Code\API\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -164,6 +165,17 @@
     <None Include="basicvertex.glsl" />
     <None Include="terrainfragment.glsl" />
     <None Include="terrainvertex.glsl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\API\bullet3-2.87\build\src\BulletCollision\BulletCollision.vcxproj">
+      <Project>{affc0335-fa01-3370-a404-811305ad711c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\API\bullet3-2.87\build\src\BulletDynamics\BulletDynamics.vcxproj">
+      <Project>{5e109ec9-c6d4-32e7-b4d1-9a2a494ac7fa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\API\bullet3-2.87\build\src\LinearMath\LinearMath.vcxproj">
+      <Project>{072c0e0b-32d2-368e-a92b-a9bb6c543c4c}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
