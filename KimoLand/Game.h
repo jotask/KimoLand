@@ -2,10 +2,14 @@
 
 #include "State.hpp"
 
+#include "Physics.h"
+
 #include "Renderer.h"
 #include "Camera.h"
 #include "ChunkManager.h"
 #include "Sun.h"
+
+#include "Testing.h"
 
 namespace Aiko {
 
@@ -24,8 +28,10 @@ namespace Aiko {
 
 		Camera cam;
 
-		ChunkManager chunk;
-		Sun sun;
+		//ChunkManager chunk;
+		//Sun sun;
+
+		Testing tests;
 
 	};
 

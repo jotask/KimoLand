@@ -31,6 +31,9 @@
     <Filter Include="source\util">
       <UniqueIdentifier>{2fd30d91-79cf-4c42-9927-a97b3b3bb8aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\engine\physics">
+      <UniqueIdentifier>{46a6325b-ae7b-43d4-998d-cb5d55aa1b46}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -82,8 +85,22 @@
     <ClCompile Include="ChunkManager.cpp">
       <Filter>source\game\world</Filter>
     </ClCompile>
-    <ClCompile Include="World.cpp" />
-    <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="RigidBody.cpp">
+      <Filter>source\engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>source\game</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>source\engine\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCollider.cpp">
+      <Filter>source\engine\components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicRenderer.cpp">
+      <Filter>source\engine\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="basicfragment.glsl">
@@ -160,7 +177,21 @@
     <ClInclude Include="ChunkManager.h">
       <Filter>source\game\world</Filter>
     </ClInclude>
-    <ClInclude Include="World.h" />
-    <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="RigidBody.h">
+      <Filter>source\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>source\game</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>source\engine\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCollider.h">
+      <Filter>source\engine\components</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicRenderer.h">
+      <Filter>source\engine\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Testing.h" />
   </ItemGroup>
 </Project>

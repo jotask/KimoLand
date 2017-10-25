@@ -5,9 +5,7 @@
 int main()
 {
 
-	Aiko::Engine eng;
-
-	eng.run();
+	Aiko::Engine::getInstance().run();
 
 	return EXIT_SUCCESS;
 	

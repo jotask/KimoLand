@@ -40,7 +40,7 @@ namespace Aiko {
 				//data.colors[vertexIndex] = color.calculateColor(h, 1.0f);
 
 				data.colors[vertexIndex] = c;
-
+				
 				h = Util::map(h, 0.0f, 1.0f, 0.0f, AMPLITUDE);
 
 				data.vertices[vertexIndex] = glm::vec3(topLeftX + x, h, topLeftZ + y);

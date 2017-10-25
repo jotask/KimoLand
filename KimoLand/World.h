@@ -25,15 +25,6 @@ namespace Aiko {
 
 	private:
 
-		btBroadphaseInterface* broadphase;
-		btDefaultCollisionConfiguration* collisionConfig;
-		btCollisionDispatcher* dispatcher;
-
-		btSequentialImpulseConstraintSolver* solver;
-		btDiscreteDynamicsWorld* world;
-
-		sf::Clock clock;
-
 	};
 
 }

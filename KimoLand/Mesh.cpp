@@ -149,21 +149,21 @@ namespace Aiko {
 		glGenBuffers(1, &vbo);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo);
 		glBufferData(GL_ARRAY_BUFFER, 3 * vertices.size() * sizeof(GLfloat), vertices.data(), GL_STATIC_DRAW);
-		glVertexAttribPointer(0, 3, GL_FLOAT, false, 0, 0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		// store color
 		glGenBuffers(1, &vcolor);
 		glBindBuffer(GL_ARRAY_BUFFER, vcolor);
 		glBufferData(GL_ARRAY_BUFFER, 3 * colors.size() * sizeof(GLfloat), colors.data(), GL_STATIC_DRAW);
-		glVertexAttribPointer(1, 3, GL_FLOAT, false, 0, 0);
+		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		// normals color
 		glGenBuffers(1, &vnorm);
 		glBindBuffer(GL_ARRAY_BUFFER, vnorm);
 		glBufferData(GL_ARRAY_BUFFER, 3 * normals.size() * sizeof(GLfloat), normals.data(), GL_STATIC_DRAW);
-		glVertexAttribPointer(2, 3, GL_FLOAT, false, 0, 0);
+		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, 0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		// Indices

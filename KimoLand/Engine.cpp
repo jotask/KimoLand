@@ -8,6 +8,7 @@ namespace Aiko {
 
 	Engine::~Engine()
 	{
+		// TODO make sure this method it's called
 		delete state;
 	}
 
@@ -31,11 +32,14 @@ namespace Aiko {
 	{
 		this->window.init();
 
+		Physics::getInstance();
+
 		this->state = new Game();
 	}
 
 	void Engine::update()
 	{
+		Physics::getInstance().update();
 		this->state->update();
 	}
 
