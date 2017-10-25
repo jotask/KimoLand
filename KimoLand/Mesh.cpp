@@ -3,7 +3,7 @@
 namespace Aiko {
 
 	Mesh::Mesh(Object& obj)
-		: Component ("mesh", obj)
+		: Component (Component::MESH, obj)
 	{
 	}
 
@@ -129,6 +129,47 @@ namespace Aiko {
 		mesh->create(vertices, colors, indices, normals);
 
 		return mesh;
+	}
+
+	Mesh * Mesh::createSphere(Object & obj)
+	{
+		// TODO create sphere code
+		/*
+		// Calc The Vertices
+		for (int i = 0; i <= Stacks; ++i) {
+
+			float V = i / (float)Stacks;
+			float phi = V * glm::pi <float>();
+
+			// Loop Through Slices
+			for (int j = 0; j <= Slices; ++j) {
+
+				float U = j / (float)Slices;
+				float theta = U * (glm::pi <float>() * 2);
+
+				// Calc The Vertex Positions
+				float x = cosf(theta) * sinf(phi);
+				float y = cosf(phi);
+				float z = sinf(theta) * sinf(phi);
+
+				// Push Back Vertex Data
+				vertices.push_back(glm::vec3(x, y, z) * Radius);
+			}
+		}
+
+		// Calc The Index Positions
+		for (int i = 0; i < Slices * Stacks + Slices; ++i) {
+
+			indices.push_back(i);
+			indices.push_back(i + Slices + 1);
+			indices.push_back(i + Slices);
+
+			indices.push_back(i + Slices + 1);
+			indices.push_back(i);
+			indices.push_back(i + 1);
+		}
+		*/
+		return nullptr;
 	}
 
 	void Mesh::update()

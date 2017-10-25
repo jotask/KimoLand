@@ -1,5 +1,5 @@
 #pragma once
-#include "Component.h"
+#include "ShapeCollider.h"
 #include "Object.h"
 #include "Renderer.h"
 #include "Mesh.h"
@@ -11,7 +11,7 @@
 
 namespace Aiko {
 
-	class MeshCollider : public Component
+	class MeshCollider : public ShapeCollider
 	{
 	public:
 		MeshCollider(Object& obj);

@@ -2,7 +2,7 @@
 
 namespace Aiko {
 
-	Component::Component(std::string id, Object& obj)
+	Component::Component(Type id, Object& obj)
 		: id(id), obj( obj )
 	{
 
@@ -14,7 +14,7 @@ namespace Aiko {
 
 	}
 
-	std::string Component::getId()
+	Component::Type Component::getId()
 	{
 		return this->id;
 	}

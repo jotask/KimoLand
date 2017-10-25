@@ -16,7 +16,6 @@
 #define CAM_Y 100.0f; // 30
 
 // Perlin noise
-
 #define OCTAVES 3
 #define AMPLITUDE 20.0f
 #define PERLIN_NOISE 15.0f

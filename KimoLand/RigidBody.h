@@ -7,6 +7,7 @@
 #include "Physics.h"
 
 #include "Component.h"
+#include "ShapeCollider.h"
 #include "Renderer.h"
 #include "Object.h"
 
@@ -15,11 +16,13 @@ namespace Aiko {
 	class RigidBody : public Component
 	{
 	public:
-		RigidBody(Object& obj);
+		RigidBody(Object& obj, float mass);
 		~RigidBody();
 
 		virtual void update();
 		virtual void render(Renderer& renderer);
+
+		btRigidBody* getBodyinPhysics();
 
 	private:
 

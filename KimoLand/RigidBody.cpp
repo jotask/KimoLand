@@ -3,25 +3,22 @@
 
 namespace Aiko {
 
-	RigidBody::RigidBody(Object& obj)
-		: Component( "rigidbody", obj )
+	RigidBody::RigidBody(Object& obj, float _mass)
+		: Component( Component::RIGIDBODY , obj )
 	{
-		if (!obj.containsComponent("collision"))
+		if (!obj.containsComponent(Component::COLLIDER))
 			throw std::runtime_error("component collision doesn't exist");
 
-		// get collision shape
-		Component* coll = obj.getComponent("collision");
-
-		btCollisionShape* shape = new btSphereShape( 1 );
+		btCollisionShape* shape = ((ShapeCollider*)(obj.getComponent(Component::COLLIDER)))->shape;
 
 		btTransform t;
 		t.setIdentity();
-		t.setOrigin( btVector3(0, 0, 0) );
+		t.setOrigin( btVector3(0, obj.getTransform().position.y, 0) );
 
 		btDefaultMotionState* state = new btDefaultMotionState( t );
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
-		btScalar mass = 1;
+		btScalar mass = btScalar(_mass);
 
 		btVector3 fallIntertia( 0, 0, 0 );
 		shape->calculateLocalInertia( mass, fallIntertia );
@@ -29,10 +26,9 @@ namespace Aiko {
 
 		this->body = new btRigidBody(ci);
 
-		// TODO add to the world
+		Physics::getInstance().getWorld().addRigidBody(this->body);
 
 	}
-
 
 	RigidBody::~RigidBody()
 	{
@@ -50,6 +46,11 @@ namespace Aiko {
 	void RigidBody::render(Renderer & renderer)
 	{
 
+	}
+
+	btRigidBody * RigidBody::getBodyinPhysics()
+	{
+		return this->body;
 	}
 
 }

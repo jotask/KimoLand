@@ -20,9 +20,6 @@ namespace Aiko {
 		void update();
 		void render(Renderer& renderer);
 
-		void addObjectToWorld(Object& obj);
-		void removeObjectFromWorld(Object& obj);
-
 	private:
 
 	};

@@ -3,11 +3,11 @@
 namespace Aiko {
 
 	MeshCollider::MeshCollider(Object& obj)
-		: Component("collider", obj)
+		: ShapeCollider(obj)
 	{
 
-		std::vector<glm::vec3>& vert = ((Mesh*)obj.getComponent("mesh"))->getVertices();
-		std::vector<GLuint>& ind = ((Mesh*)obj.getComponent("mesh"))->getIndices();
+		std::vector<glm::vec3>& vert = ((Mesh*)obj.getComponent(Component::MESH))->getVertices();
+		std::vector<GLuint>& ind = ((Mesh*)obj.getComponent(Component::MESH))->getIndices();
 
 		btVector3 vertex1, vertex2, vertex3, vertex4;
 		this->shape = new btTriangleMesh();

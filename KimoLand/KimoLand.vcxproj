@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Chunk.cpp" />
     <ClCompile Include="ChunkManager.cpp" />
@@ -138,13 +139,15 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RigidBody.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShapeCollider.cpp" />
+    <ClCompile Include="SphereCollider.cpp" />
     <ClCompile Include="Sun.cpp" />
     <ClCompile Include="TerrainGenerator.cpp" />
-    <ClCompile Include="Testing.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Chunk.h" />
     <ClInclude Include="ChunkManager.h" />
@@ -164,10 +167,11 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShapeCollider.h" />
+    <ClInclude Include="SphereCollider.h" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="Sun.h" />
     <ClInclude Include="TerrainGenerator.h" />
-    <ClInclude Include="Testing.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Util.hpp" />
     <ClInclude Include="World.h" />

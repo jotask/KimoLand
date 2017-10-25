@@ -33,17 +33,17 @@ namespace Aiko {
 		return this->transform;
 	}
 
-	std::map<std::string, Component*>& Object::getComponents()
+	std::map<Component::Type, Component*>& Object::getComponents()
 	{
 		return this->components;
 	}
 
-	bool Object::containsComponent(std::string cmp)
+	bool Object::containsComponent(Component::Type id)
 	{
-		return (this->components.find(cmp) != this->components.end());
+		return (this->components.find(id) != this->components.end());
 	}
 
-	Component * Object::getComponent(std::string id)
+	Component * Object::getComponent(Component::Type id)
 	{
 
 		if (!this->containsComponent(id))
@@ -62,10 +62,10 @@ namespace Aiko {
 		if (containsComponent(component->getId()))
 		{
 			// we already have this component
-			throw std::runtime_error("Component: " + component->getId() + " already exist in this object");
+			throw std::runtime_error("Component already exist in this object");
 		}
 
-		std::pair<std::string, Component*> tmp = std::pair<std::string, Component*>(component->getId(), component);
+		std::pair<Component::Type, Component*> tmp = std::pair<Component::Type, Component*>(component->getId(), component);
 
 		this->components.insert(tmp);
 

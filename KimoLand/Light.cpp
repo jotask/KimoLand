@@ -6,7 +6,7 @@ namespace Aiko {
 	int Light::NUMBER_LIGTHS = 0;
 
 	Light::Light(Object& obj)
-		: Component("light", obj)
+		: Component(Component::LIGHT, obj)
 		, id(NUMBER_LIGTHS++)
 	{
 

@@ -34,6 +34,9 @@
     <Filter Include="source\engine\physics">
       <UniqueIdentifier>{46a6325b-ae7b-43d4-998d-cb5d55aa1b46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\engine\components\shapecolliders">
+      <UniqueIdentifier>{a89c405f-70df-4bba-a345-f1fbf8189b95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -94,13 +97,21 @@
     <ClCompile Include="Physics.cpp">
       <Filter>source\engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="MeshCollider.cpp">
-      <Filter>source\engine\components</Filter>
-    </ClCompile>
     <ClCompile Include="PhysicRenderer.cpp">
       <Filter>source\engine\physics</Filter>
     </ClCompile>
-    <ClCompile Include="Testing.cpp" />
+    <ClCompile Include="ShapeCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="basicfragment.glsl">
@@ -186,12 +197,20 @@
     <ClInclude Include="Physics.h">
       <Filter>source\engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="MeshCollider.h">
-      <Filter>source\engine\components</Filter>
-    </ClInclude>
     <ClInclude Include="PhysicRenderer.h">
       <Filter>source\engine\physics</Filter>
     </ClInclude>
-    <ClInclude Include="Testing.h" />
+    <ClInclude Include="SphereCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -21,6 +21,7 @@ namespace Aiko {
 
 		static Mesh* createQuad(Object& obj);
 		static Mesh* createCube(Object& obj);
+		static Mesh* createSphere(Object& obj);
 
 		virtual void update();
 		virtual void render(Renderer& renderer);

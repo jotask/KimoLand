@@ -6,6 +6,8 @@
 
 #include "Mesh.h"
 #include "Light.h"
+#include "RigidBody.h"
+#include "SphereCollider.h"
 
 namespace Aiko {
 
@@ -19,6 +21,8 @@ namespace Aiko {
 		virtual void update();
 
 		sf::Clock clock;
+
+		RigidBody* body;
 
 	};
 

@@ -11,13 +11,18 @@ namespace Aiko {
 	class Component
 	{
 	public:
-		Component(std::string id, Object& obj);
+
+		enum Type {
+			LIGHT,MESH, COLLIDER, RIGIDBODY
+		};
+
+		Component(Type id, Object& obj);
 		~Component();
 
 		virtual void update() = 0;
 		virtual void render(Renderer& renderer) = 0;
 
-		std::string getId();
+		Type getId();
 
 		template<typename Component, typename T>
 		inline bool instanceof(const T *ptr) {
@@ -26,7 +31,7 @@ namespace Aiko {
 
 	protected:
 
-		const std::string id;
+		const Type id;
 
 		Object& obj;
 

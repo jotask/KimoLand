@@ -23,20 +23,4 @@ namespace Aiko {
 
 	}
 
-	void World::addObjectToWorld(Object & obj)
-	{
-		if (!obj.containsComponent("rigidbody"))
-		{
-			throw std::runtime_error("component doesn't exist on this object");
-		}
-		else {
-			// TODO add object to world
-		}
-	}
-
-	void World::removeObjectFromWorld(Object & obj)
-	{
-		// todo remove object from world
-	}
-
 }

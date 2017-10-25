@@ -22,11 +22,11 @@ namespace Aiko {
 		virtual void render(Renderer& renderer);
 
 		Transform& getTransform();
-		std::map<std::string, Component*>& getComponents();
+		std::map<Component::Type, Component*>& getComponents();
 
-		bool containsComponent(std::string cmp);
+		bool containsComponent(Component::Type cmp);
 
-		Component* getComponent(std::string);
+		Component* getComponent(Component::Type id);
 
 	protected:
 
@@ -36,7 +36,7 @@ namespace Aiko {
 
 		Transform transform;
 
-		std::map<std::string, Component*> components;
+		std::map<Component::Type, Component*> components;
 
 	};
 
