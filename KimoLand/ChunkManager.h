@@ -3,6 +3,8 @@
 #include <vector>
 #include <iostream>
 
+#include "definitions.h"
+
 #include "Chunk.h"
 
 namespace Aiko {
@@ -20,7 +22,7 @@ namespace Aiko {
 
 	private:
 
-		const unsigned int SIZE = 3 * 3;
+		const unsigned int SIZE = CHUNK_MANAGER_SIZE;
 
 		std::vector< Chunk* > chunks;
 	};

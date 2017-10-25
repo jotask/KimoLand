@@ -14,7 +14,11 @@ namespace Aiko {
 
 		btCollisionShape* shape = new btSphereShape( 1 );
 
-		btDefaultMotionState* state = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, 50, 0)) );
+		btTransform t;
+		t.setIdentity();
+		t.setOrigin( btVector3(0, 0, 0) );
+
+		btDefaultMotionState* state = new btDefaultMotionState( t );
 
 		//rigidbody is dynamic if and only if mass is non zero, otherwise static
 		btScalar mass = 1;
@@ -33,7 +37,7 @@ namespace Aiko {
 	RigidBody::~RigidBody()
 	{
 		// TODO delete from world
-		// world->removeRigidBody(this->body);
+		Physics::getInstance().getWorld().removeRigidBody(this->body);
 		delete this->body->getMotionState();
 		delete this->body;
 	}

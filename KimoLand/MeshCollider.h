@@ -2,6 +2,9 @@
 #include "Component.h"
 #include "Object.h"
 #include "Renderer.h"
+#include "Mesh.h"
+#include "Physics.h"
+#include "definitions.h"
 
 #include "btBulletCollisionCommon.h"
 #include "btBulletDynamicsCommon.h"

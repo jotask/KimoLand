@@ -9,8 +9,6 @@
 #include "ChunkManager.h"
 #include "Sun.h"
 
-#include "Testing.h"
-
 namespace Aiko {
 
 	class Game : public IState
@@ -28,10 +26,8 @@ namespace Aiko {
 
 		Camera cam;
 
-		//ChunkManager chunk;
-		//Sun sun;
-
-		Testing tests;
+		ChunkManager chunk;
+		Sun sun;
 
 	};
 

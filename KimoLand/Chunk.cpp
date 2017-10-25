@@ -15,6 +15,9 @@ namespace Aiko {
 
 		this->addComponent( mesh ); 
 
+		MeshCollider* collider = new MeshCollider(*this);
+		this->addComponent(collider);
+
 	}
 
 

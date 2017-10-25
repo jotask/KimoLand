@@ -27,10 +27,18 @@ namespace Aiko {
 
 		void create(const std::vector<glm::vec3> vertices, const std::vector<glm::vec3> colours,
 			const std::vector<GLuint> indices, const std::vector<glm::vec3> normals);
+
+
+		std::vector<glm::vec3>& getVertices();
+		std::vector<GLuint>& getIndices();
 		 
 	private:
 
 		int size = 0;
+
+		std::vector<glm::vec3> vertices;
+		std::vector<GLuint> indices;
+
 
 		GLuint vao;
 		GLuint vbo;

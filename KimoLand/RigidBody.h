@@ -4,6 +4,8 @@
 
 #include <exception>
 
+#include "Physics.h"
+
 #include "Component.h"
 #include "Renderer.h"
 #include "Object.h"

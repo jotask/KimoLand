@@ -19,6 +19,11 @@ namespace Aiko {
 
 		std::string getId();
 
+		template<typename Component, typename T>
+		inline bool instanceof(const T *ptr) {
+			return dynamic_cast<const Component*>(ptr) != nullptr;
+		}
+
 	protected:
 
 		const std::string id;

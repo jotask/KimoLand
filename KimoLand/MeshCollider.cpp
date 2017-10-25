@@ -1,36 +1,46 @@
 #include "MeshCollider.h"
 
-
 namespace Aiko {
 
 	MeshCollider::MeshCollider(Object& obj)
 		: Component("collider", obj)
 	{
+
+		std::vector<glm::vec3>& vert = ((Mesh*)obj.getComponent("mesh"))->getVertices();
+		std::vector<GLuint>& ind = ((Mesh*)obj.getComponent("mesh"))->getIndices();
+
 		btVector3 vertex1, vertex2, vertex3, vertex4;
 		this->shape = new btTriangleMesh();
 
-		for (int i = -250; i < 250; i = i + 10) {
-			for (int j = -250; j < 250; j = j + 10) {
+		for (unsigned int i = 0; i < ind.size(); i+=3)
+		{
+			glm::vec3 a = vert.at(ind.at(i + 0));
+			glm::vec3 b = vert.at(ind.at(i + 1));
+			glm::vec3 c = vert.at(ind.at(i + 2));
 
-				vertex1 = btVector3(i, 0.0f, j);
-				vertex2 = btVector3(i + 10.0f, 0.0f, j);
-				vertex3 = btVector3(i + 10.0f, 0.0f, j + 10.0f);
-				vertex4 = btVector3(i, 0.0f, j + 10.0f);
+			this->shape->addTriangle(
+				btVector3(a.x, a.y, a.z),
+				btVector3(b.x, b.y, b.z),
+				btVector3(c.x, c.y, c.z)
+			);
 
-				this->shape->addTriangle(vertex1, vertex2, vertex3);
-				this->shape->addTriangle(vertex1, vertex3, vertex4);
-			}
 		}
 
 		btCollisionShape* collisionShapeTerrain = new btBvhTriangleMeshShape(this->shape, true);
 
-		btDefaultMotionState* motionState = new btDefaultMotionState(btTransform(btQuaternion(0, 0, 0, 1), btVector3(0, -15, 0)));
+		btTransform t;
+		t.setIdentity();
+		Transform trans = obj.getTransform();
+		t.setOrigin( btVector3( trans.position.x, -1.0f, trans.position.z) );
+
+		btDefaultMotionState* motionState = new btDefaultMotionState( t );
 
 		btRigidBody::btRigidBodyConstructionInfo rigidBodyConstructionInfo(0.0f, motionState, collisionShapeTerrain, btVector3(0, 0, 0));
 		btRigidBody* rigidBodyTerrain = new btRigidBody(rigidBodyConstructionInfo);
 		rigidBodyTerrain->setFriction(btScalar(0.9));
 
-		// m_dynamicsWorld->addRigidBody(rigidBodyTerrain);
+		Physics::getInstance().getWorld().addRigidBody(rigidBodyTerrain );
+
 	}
 
 

@@ -139,6 +139,8 @@ namespace Aiko {
 		const std::vector<GLuint> indices, const std::vector<glm::vec3> normals)
 	{
 
+		this->vertices = vertices;
+		this->indices = indices,
 		this->size = indices.size();
 
 		// generate ,get and bind the buffer
@@ -173,6 +175,17 @@ namespace Aiko {
 
 		glBindVertexArray(0);
 
+	}
+
+	std::vector<glm::vec3>& Mesh::getVertices()
+	{
+		// TODO: insert return statement here
+		return this->vertices;
+	}
+
+	std::vector<GLuint>& Mesh::getIndices()
+	{
+		return this->indices;
 	}
 
 	void Mesh::render(Renderer& renderer)

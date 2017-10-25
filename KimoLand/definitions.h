@@ -4,7 +4,10 @@
 #define HEIGHT 600
 
 // SHADER
-#define WIREFRAME false
+#define WIREFRAME true
+
+// Physics
+#define DRAW_DEBUG false
 
 // Camera definitions
 #define FOV 45.0f
@@ -22,6 +25,7 @@
 
 
 // TERRAIN
+#define CHUNK_MANAGER_SIZE 3
 #define TERRAIN_SIZE 20
 #define TERRAIN_COLS 0
 #define COLOUR_SPREAD 0.45f

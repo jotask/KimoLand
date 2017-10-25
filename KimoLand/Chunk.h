@@ -2,6 +2,7 @@
 
 #include "Object.h"
 #include "Mesh.h"
+#include "MeshCollider.h"
 
 #include "TerrainGenerator.h"
 
