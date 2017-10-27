@@ -10,8 +10,8 @@ namespace Aiko {
 		BoxCollider(Object& oj, float width, float height, float depth);
 		~BoxCollider();
 
-		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual Mesh* createMeshFromShape() override;
+
 	};
 
 }

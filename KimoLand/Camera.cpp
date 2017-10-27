@@ -43,4 +43,9 @@ namespace Aiko {
 		return glm::perspective(glm::radians(FOV), ((float)this->width / (float)this->height), 0.1f, 1000.0f);
 	}
 
+	Transform & Camera::getTransform()
+	{
+		return this->tranform;
+	}
+
 }

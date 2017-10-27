@@ -24,7 +24,7 @@ namespace Aiko {
 		static Mesh* createSphere(Object& obj);
 
 		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual void render();
 
 		void create(const std::vector<glm::vec3> vertices, const std::vector<glm::vec3> colours,
 			const std::vector<GLuint> indices, const std::vector<glm::vec3> normals);
@@ -39,6 +39,8 @@ namespace Aiko {
 
 		std::vector<glm::vec3> vertices;
 		std::vector<GLuint> indices;
+
+		static const std::vector<glm::vec3> calculateNormals(const std::vector<glm::vec3> vert, const std::vector<GLuint> ind);
 
 
 		GLuint vao;

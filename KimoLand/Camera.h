@@ -24,6 +24,8 @@ namespace Aiko {
 		glm::mat4 getView();
 		glm::mat4 getProjection();
 
+		Transform& getTransform();
+
 	private:
 
 		unsigned int width = WIDTH;

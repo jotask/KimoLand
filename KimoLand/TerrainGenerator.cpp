@@ -13,7 +13,7 @@ namespace Aiko {
 		float topLeftX = (width - 1) / -2.0f;
 		float topLeftZ = (height - 1) / -2.0f;
 
-		siv::PerlinNoise noise;
+		siv::PerlinNoise noise(SEED);
 
 		ColorGenerator color;
 

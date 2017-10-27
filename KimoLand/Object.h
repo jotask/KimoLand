@@ -19,7 +19,7 @@ namespace Aiko {
 		~Object();
 
 		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual void render();
 
 		Transform& getTransform();
 		std::map<Component::Type, Component*>& getComponents();

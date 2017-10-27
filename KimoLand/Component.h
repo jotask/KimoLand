@@ -2,10 +2,9 @@
 
 #include <string>
 
-#include "Renderer.h"
-
 namespace Aiko {
 
+	class Renderer;
 	class Object;
 
 	class Component
@@ -20,7 +19,7 @@ namespace Aiko {
 		~Component();
 
 		virtual void update() = 0;
-		virtual void render(Renderer& renderer) = 0;
+		virtual void render() = 0;
 
 		Type getId();
 

@@ -31,7 +31,7 @@ namespace Aiko {
 	void ChunkManager::render(Renderer & renderer)
 	{
 		for (unsigned int i = 0; i < chunks.size(); i++)
-			this->chunks.at(i)->render(renderer);
+			renderer.render(this->chunks.at(i));
 	}
 
 }

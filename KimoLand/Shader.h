@@ -31,6 +31,8 @@ namespace Aiko {
 
 		GLuint getLocation(const std::string name );
 
+		void setInt(const std::string name, const GLint n);
+		void setFloat(const std::string name, const GLfloat n);
 		void setMat4(const std::string name, const glm::mat4 mat);
 		void setVec3(const std::string name, const glm::vec3 vec);
 

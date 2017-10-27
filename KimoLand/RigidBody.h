@@ -20,7 +20,7 @@ namespace Aiko {
 		~RigidBody();
 
 		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual void render();
 
 		btRigidBody* getBodyinPhysics();
 

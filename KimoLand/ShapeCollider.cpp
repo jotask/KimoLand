@@ -13,4 +13,14 @@ namespace Aiko {
 
 	}
 
+	void ShapeCollider::update()
+	{
+
+	}
+
+	void ShapeCollider::render()
+	{
+
+	}
+
 }

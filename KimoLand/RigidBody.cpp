@@ -43,7 +43,7 @@ namespace Aiko {
 
 	}
 
-	void RigidBody::render(Renderer & renderer)
+	void RigidBody::render()
 	{
 
 	}

@@ -12,14 +12,12 @@ namespace Aiko {
 	{
 	}
 
-	void BoxCollider::update()
+	Mesh * BoxCollider::createMeshFromShape()
 	{
 
-	}
+		btVector3 extend = ((btBoxShape*) this->shape)->getHalfExtentsWithoutMargin();
 
-	void BoxCollider::render(Renderer & renderer)
-	{
-
+		return nullptr;
 	}
 
 }

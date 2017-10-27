@@ -20,6 +20,7 @@ namespace Aiko {
 		settings.attributeFlags = sf::ContextSettings::Core;
 
 		this->window.create(sf::VideoMode(WIDTH, HEIGHT, 32), "openGL", sf::Style::Default, settings);
+		this->window.setVerticalSyncEnabled(true);
 
 		glewExperimental = GLU_TRUE;
 

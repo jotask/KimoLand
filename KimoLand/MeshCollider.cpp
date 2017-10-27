@@ -49,12 +49,9 @@ namespace Aiko {
 
 	}
 
-	void MeshCollider::update()
+	Mesh * MeshCollider::createMeshFromShape()
 	{
-	}
-
-	void MeshCollider::render(Renderer & renderer)
-	{
+		return nullptr;
 	}
 
 }

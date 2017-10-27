@@ -16,12 +16,10 @@ namespace Aiko {
 
 	}
 
-	void SphereCollider::update()
+	Mesh * SphereCollider::createMeshFromShape()
 	{
-	}
 
-	void SphereCollider::render(Renderer & renderer)
-	{
+		return nullptr;
 	}
 
 }

@@ -5,10 +5,10 @@ namespace Aiko {
 	Sun::Sun()
 	{
 
-		this->getTransform().position.y = 30.0f;
+		this->getTransform().position.y = 20.0f;
 
 		Mesh* mesh = Mesh::createCube(*this);
-		this->addComponent( mesh );
+		this->addComponent(mesh);
 
 		Light* light = new Light(*this);
 		this->addComponent( light );
@@ -16,8 +16,11 @@ namespace Aiko {
 		SphereCollider* coll = new SphereCollider(*this, 1.0f);
 		this->addComponent(coll);
 
-		this->body = new RigidBody(*this, 1.0f);
+		this->body = new RigidBody(*this, 0.0f);
 		this->addComponent(this->body);
+
+		light->attenuation = 100.0f;
+		light->linear = 50.0f;
 
 	}
 
@@ -28,13 +31,7 @@ namespace Aiko {
 
 	void Sun::update()
 	{
-		/*
-		float radius = 10.0f;
-		float x = cos(clock.getElapsedTime().asSeconds()) * radius;
-		float z = sin(clock.getElapsedTime().asSeconds()) * radius;
-		this->getTransform().position.x = x;
-		this->getTransform().position.z = z;
-		*/
+	
 		btTransform transform;
 		this->body-> getBodyinPhysics() -> getMotionState()->getWorldTransform(transform);
 
@@ -42,10 +39,19 @@ namespace Aiko {
 		p.x = transform.getOrigin().x();
 		p.y = transform.getOrigin().y();
 		p.z = transform.getOrigin().z();
+
 		this->getTransform().position = p;
 
 		//transform.setPosition(new_position);
 		//this->body->getMotionState()->setWorldTransform(transform);
+
+		
+		float radius = 10.0f;
+		float x = cos(clock.getElapsedTime().asSeconds() * -2) * radius;
+		float z = sin(clock.getElapsedTime().asSeconds() * -2) * radius;
+		this->getTransform().position.x = x;
+		this->getTransform().position.z = z;
+
 	}
 
 }

@@ -17,8 +17,7 @@ namespace Aiko {
 		MeshCollider(Object& obj);
 		~MeshCollider();
 
-		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual Mesh* createMeshFromShape() override;
 
 	private:
 

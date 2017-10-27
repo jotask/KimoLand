@@ -20,6 +20,7 @@ namespace Aiko {
 			this->window.pollEvents();
 
 			this->update();
+
 			this->render();
 
 			// swap buffers

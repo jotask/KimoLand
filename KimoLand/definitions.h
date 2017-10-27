@@ -4,7 +4,7 @@
 #define HEIGHT 600
 
 // SHADER
-#define WIREFRAME true
+#define WIREFRAME false
 
 // Physics
 #define DRAW_DEBUG false
@@ -12,10 +12,11 @@
 // Camera definitions
 #define FOV 45.0f
 #define ROTATE true
-#define CAM_RADIUS 75.0f // 100
-#define CAM_Y 100.0f; // 30
+#define CAM_RADIUS 50.0f // 100
+#define CAM_Y 50.0f; // 30
 
 // Perlin noise
+#define SEED 42
 #define OCTAVES 3
 #define AMPLITUDE 20.0f
 #define PERLIN_NOISE 15.0f

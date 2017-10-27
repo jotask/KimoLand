@@ -13,8 +13,7 @@ namespace Aiko {
 		SphereCollider(Object& obj, float radious);
 		~SphereCollider();
 
-		virtual void update();
-		virtual void render(Renderer& renderer);
+		virtual Mesh* createMeshFromShape();
 
 	private:
 		float radius;

@@ -14,16 +14,21 @@ namespace Aiko {
 	{
 		cam.update();
 		chunk.update();
+
 		sun.update();
 	}
 
 	void Game::render()
 	{
-		renderer.begin();
-		renderer.loadCamera(cam);
+		renderer.begin(cam);
+
+		// renderer.loadCamera(cam);
+
 		chunk.render(renderer);
-		sun.render(renderer);
-		renderer.end();
+
+		renderer.render(&sun);
+
+		renderer.end(cam);
 
 		if(DRAW_DEBUG)
 			Physics::getInstance().render(cam);

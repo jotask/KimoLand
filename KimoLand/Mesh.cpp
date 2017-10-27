@@ -133,43 +133,85 @@ namespace Aiko {
 
 	Mesh * Mesh::createSphere(Object & obj)
 	{
-		// TODO create sphere code
-		/*
-		// Calc The Vertices
-		for (int i = 0; i <= Stacks; ++i) {
+		
+		const float X = .525731112119133606f;
+		const float Z = .850650808352039932f;
+		const float N = 0.f;
 
-			float V = i / (float)Stacks;
-			float phi = V * glm::pi <float>();
+		const std::vector<glm::vec3> vertices{
+			glm::vec3(-X, N, Z),
+			glm::vec3(X, N, Z),
+			glm::vec3(-X, N, -Z),
+			glm::vec3(X, N, -Z),
 
-			// Loop Through Slices
-			for (int j = 0; j <= Slices; ++j) {
+			glm::vec3(N, Z, X),
+			glm::vec3(N, Z, -X),
+			glm::vec3(N, -Z, X),
+			glm::vec3(N, -Z, -X),
 
-				float U = j / (float)Slices;
-				float theta = U * (glm::pi <float>() * 2);
+			glm::vec3(Z, X , N),
+			glm::vec3(-Z, X, N),
+			glm::vec3(Z, -X, N),
+			glm::vec3(-Z, -X, N)
+		};
 
-				// Calc The Vertex Positions
-				float x = cosf(theta) * sinf(phi);
-				float y = cosf(phi);
-				float z = sinf(theta) * sinf(phi);
 
-				// Push Back Vertex Data
-				vertices.push_back(glm::vec3(x, y, z) * Radius);
-			}
-		}
+		std::cout << "created vert" << std::endl;
 
-		// Calc The Index Positions
-		for (int i = 0; i < Slices * Stacks + Slices; ++i) {
+		const std::vector<glm::vec3> colors{
+			glm::vec3(0.583f,  0.771f,  0.014f),
+			glm::vec3(0.609f,  0.115f,  0.436f),
+			glm::vec3(0.327f,  0.483f,  0.844f),
+			glm::vec3(0.822f,  0.569f,  0.201f),
+			glm::vec3(0.583f,  0.771f,  0.014f),
+			glm::vec3(0.609f,  0.115f,  0.436f),
+			glm::vec3(0.327f,  0.483f,  0.844f),
+			glm::vec3(0.822f,  0.569f,  0.201f),
+			glm::vec3(0.583f,  0.771f,  0.014f),
+			glm::vec3(0.609f,  0.115f,  0.436f),
+			glm::vec3(0.327f,  0.483f,  0.844f),
+			glm::vec3(0.822f,  0.569f,  0.201f)
+		};
 
-			indices.push_back(i);
-			indices.push_back(i + Slices + 1);
-			indices.push_back(i + Slices);
+		std::cout << "created color" << std::endl;
 
-			indices.push_back(i + Slices + 1);
-			indices.push_back(i);
-			indices.push_back(i + 1);
-		}
-		*/
-		return nullptr;
+		const std::vector<GLuint> indices{
+			0,4,1,
+			0,9,4,
+			9,5,4,
+			4,5,8,
+			4,8,1,
+			8,10,1,
+			8,3,10,
+			5,3,8,
+			5,2,3,
+			2,7,3,
+			7,10,3,
+			7,6,10,
+			7,11,6,
+			11,0,6,
+			0,1,6,
+			6,1,10,
+			9,0,11,
+			9,11,2,
+			9,2,5,
+			7,2,11
+		};
+
+		std::cout << "created ind" << std::endl;
+
+		const std::vector<glm::vec3> normals = calculateNormals(vertices, indices);
+
+		std::cout << "created" << std::endl;
+
+		// TODO change this by using a shared pointer maybe
+		// needs to do more research
+
+		Mesh* mesh = new Mesh(obj);
+		mesh->create(vertices, colors, indices, normals);
+
+		return mesh;
+
 	}
 
 	void Mesh::update()
@@ -220,7 +262,6 @@ namespace Aiko {
 
 	std::vector<glm::vec3>& Mesh::getVertices()
 	{
-		// TODO: insert return statement here
 		return this->vertices;
 	}
 
@@ -229,7 +270,41 @@ namespace Aiko {
 		return this->indices;
 	}
 
-	void Mesh::render(Renderer& renderer)
+	const std::vector<glm::vec3> Mesh::calculateNormals(std::vector<glm::vec3> vert, std::vector<GLuint> ind)
+	{
+		std::vector<glm::vec3> normals;
+
+		std::cout << "v: " << vert.size() << " i: " << ind.size() << std::endl;
+
+		for (unsigned int i = 0; i < ind.size(); i+=3)
+		{
+
+			std::cout << "i: " << i << " : " << i + 1 << " : " << i +1 << std::endl;
+
+			glm::vec3 a = vert.at(i+0);
+			glm::vec3 b = vert.at(i+1);
+			glm::vec3 c = vert.at(i+2);
+
+			std::cout << "called" << std::endl;
+			
+			glm::vec3 normal;
+
+			glm::vec3 tmp1 = b - a;
+			glm::vec3 tmp2 = c - a;
+
+			normal = glm::cross(tmp1, tmp2);
+			normal = glm::normalize(normal);
+
+			normals.push_back(normal);
+
+		}
+
+		std::cout << "finished and returning" << std::endl;
+
+		return normals;
+	}
+
+	void Mesh::render()
 	{
 
 		glBindVertexArray(vao);

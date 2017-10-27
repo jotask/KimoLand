@@ -21,11 +21,10 @@ namespace Aiko {
 			comp.second->update();
 	}
 
-	void Object::render(Renderer& renderer)
+	void Object::render()
 	{
-		renderer.loadTrasnform(this->transform);
 		for (auto const& comp : this->components)
-			comp.second->render(renderer);
+			comp.second->render();
 	}
 
 	Transform & Object::getTransform()
@@ -55,8 +54,7 @@ namespace Aiko {
 
 	void Object::addComponent(Component* component)
 	{
-		std::cout << component->getId() << std::endl;
-
+		// std::cout << component->getId() << std::endl;
 
 		// Check if component already exist
 		if (containsComponent(component->getId()))

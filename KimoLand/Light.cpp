@@ -21,12 +21,8 @@ namespace Aiko {
 	{
 	}
 
-	void Light::render(Renderer& renderer)
+	void Light::render()
 	{
-		Shader& s = renderer.getShader();
-
-		s.setVec3("lightPos", this->obj.getTransform().position);
-		s.setVec3("lightColor", this->color);
 
 	}
 

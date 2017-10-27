@@ -20,8 +20,8 @@ namespace Aiko {
 		try
 		{
 			// open files
-			vShaderFile.open(vertex_file);
-			fShaderFile.open(fragment_file);
+			vShaderFile.open("./shaders/" + vertex_file);
+			fShaderFile.open("./shaders/" + fragment_file);
 			std::stringstream vShaderStream, fShaderStream;
 			// read file's buffer contents into streams
 			vShaderStream << vShaderFile.rdbuf();
@@ -54,7 +54,7 @@ namespace Aiko {
 		if (!success)
 		{
 			glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
+			std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED::" << vertex_file << "\n" << infoLog << std::endl;
 		};
 
 		// fragment Shader
@@ -66,7 +66,7 @@ namespace Aiko {
 		if (!success)
 		{
 			glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
+			std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED::" << fragment_file << "\n" << infoLog << std::endl;
 		};
 
 		// shader Program
@@ -123,6 +123,16 @@ namespace Aiko {
 			glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	}
 
+	void Shader::setInt(const std::string name, const GLint n)
+	{
+		glUniform1i(getLocation(name), n);
+	}
+
+	void Shader::setFloat(const std::string name, const GLfloat n)
+	{
+		glUniform1f( getLocation( name ), n );
+	}
+
 	void Shader::setMat4(const std::string name, const glm::mat4 mat)
 	{
 		glUniformMatrix4fv( getLocation( name ), 1, GL_FALSE, &mat[0][0] );
@@ -144,9 +154,7 @@ namespace Aiko {
 		GLuint location = glGetUniformLocation(this->program, name.c_str());
 
 		if (location == -1)
-		{
-			std::cout << "ERROR " << name << std::endl;
-		}
+			throw std::runtime_error("Location " + name + " doesn't exiist on shader");
 
 		return location;
 

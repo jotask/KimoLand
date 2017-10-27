@@ -2,6 +2,8 @@
 
 #include "Component.h"
 
+#include "Mesh.h"
+
 #include "btBulletCollisionCommon.h"
 
 namespace Aiko {
@@ -12,7 +14,12 @@ namespace Aiko {
 		ShapeCollider(Object& obj);
 		~ShapeCollider();
 
+		virtual void update();
+		virtual void render();
+
 		btCollisionShape* shape;
+
+		virtual Mesh* createMeshFromShape() = 0;
 
 	};
 

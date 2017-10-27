@@ -19,9 +19,6 @@
     <Filter Include="source\engine\graphics">
       <UniqueIdentifier>{57683a83-f17a-474f-99db-9eaeaa877239}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\engine\graphics\shaders">
-      <UniqueIdentifier>{2ba43e69-655d-46dd-b4b6-59731e4b9cb3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\engine\components">
       <UniqueIdentifier>{7c395d64-0c36-40f3-8f7d-2a8d2a99eb16}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,9 @@
     <Filter Include="source\engine\components\shapecolliders">
       <UniqueIdentifier>{a89c405f-70df-4bba-a345-f1fbf8189b95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="assets\shaders">
+      <UniqueIdentifier>{39538f13-30a3-46d2-b45f-eb5568febf5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -45,9 +45,6 @@
     </ClCompile>
     <ClCompile Include="TerrainGenerator.cpp">
       <Filter>source\game\world</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>source\engine\graphics\shaders</Filter>
     </ClCompile>
     <ClCompile Include="Display.cpp">
       <Filter>source\engine</Filter>
@@ -112,20 +109,21 @@
     <ClCompile Include="BoxCollider.cpp">
       <Filter>source\engine\components\shapecolliders</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="basicfragment.glsl">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="basicvertex.glsl">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="terrainfragment.glsl">
-      <Filter>assets</Filter>
-    </None>
-    <None Include="terrainvertex.glsl">
-      <Filter>assets</Filter>
-    </None>
+    <ClCompile Include="CapsuleCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="CylinderCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="ConeCollider.cpp">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClCompile>
+    <ClCompile Include="GBuffer.cpp">
+      <Filter>source\engine\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>source\engine\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ColorGenerator.h">
@@ -139,9 +137,6 @@
     </ClInclude>
     <ClInclude Include="Util.hpp">
       <Filter>source\util</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>source\engine\graphics\shaders</Filter>
     </ClInclude>
     <ClInclude Include="definitions.h">
       <Filter>source\util</Filter>
@@ -212,5 +207,52 @@
     <ClInclude Include="BoxCollider.h">
       <Filter>source\engine\components\shapecolliders</Filter>
     </ClInclude>
+    <ClInclude Include="CapsuleCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="CylinderCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="ConeCollider.h">
+      <Filter>source\engine\components\shapecolliders</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>source\engine\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="GBuffer.h">
+      <Filter>source\engine\graphics</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\basicfragment.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\basicvertex.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\bufferfragment.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\buffervertex.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\deferredShadingfragment.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\deferredShadingvertex.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\lineFragment.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\lineVertex.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\terrainfragment.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
+    <None Include="shaders\terrainvertex.glsl">
+      <Filter>assets\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
